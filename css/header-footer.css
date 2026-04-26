@@ -69,6 +69,12 @@ body {
     text-decoration: none;
 }
 
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
 .site-header .logo-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.35rem;
@@ -262,16 +268,8 @@ body {
     border-bottom: 1px solid var(--hf-border);
 }
 
-.mobile-panel .panel-header .logo-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--hf-dark);
-    letter-spacing: -0.5px;
-}
-
-.mobile-panel .panel-header .logo-text span {
-    color: var(--hf-primary);
+.mobile-panel .panel-header .logo-img {
+    height: 34px;
 }
 
 .mobile-panel .panel-close {
@@ -418,19 +416,12 @@ body {
 /* Footer logo */
 .site-footer .footer-logo {
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
 }
 
-.site-footer .logo-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--hf-dark);
-    letter-spacing: -0.5px;
-}
-
-.site-footer .logo-text span {
-    color: var(--hf-primary);
+.site-footer .logo-img {
+    height: 36px;
 }
 
 /* Footer nav */
@@ -562,7 +553,7 @@ body {
 @media (max-width: 480px) {
     :root { --hf-header-h: 70px; }
 
-    .site-header .logo-text { font-size: 1.15rem; }
+    .logo-img { height: 32px; }
 
     .site-header .btn-hire {
         padding: 8px 14px;

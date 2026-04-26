@@ -55,7 +55,7 @@ const HEADER_HTML = `
 
         <!-- Logo -->
         <a href="index.html" class="header-logo" aria-label="Home">
-            <span class="logo-text">Arif<span>Billah</span></span>
+            <img src="images/logo.svg" alt="Arif Billah" class="logo-img">
         </a>
 
         <!-- Primary Desktop Nav -->
@@ -87,7 +87,7 @@ const HEADER_HTML = `
 
     <div class="panel-header">
         <a href="index.html" class="header-logo">
-            <span class="logo-text">Arif<span>Billah</span></span>
+            <img src="images/logo.svg" alt="Arif Billah" class="logo-img">
         </a>
         <button class="panel-close" id="panelClose" aria-label="Close menu">
             ${icon.x}
@@ -128,7 +128,7 @@ const FOOTER_HTML = `
 
         <!-- Logo -->
         <a href="index.html" class="footer-logo header-logo" aria-label="Home">
-            <span class="logo-text">Arif<span>Billah</span></span>
+            <img src="images/logo.svg" alt="Arif Billah" class="logo-img">
         </a>
 
         <!-- Nav links -->

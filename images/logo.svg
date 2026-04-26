@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" width="180" height="44" role="img" aria-label="Arif Billah">
+  <!-- Circle badge -->
+  <circle cx="22" cy="22" r="20" fill="#0002eb"/>
+  <text x="22" y="27" font-family="Montserrat, Arial, sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">AB</text>
+  <!-- Wordmark -->
+  <text x="50" y="29" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="800" fill="#27272e" letter-spacing="-0.5">Arif</text>
+  <text x="97" y="29" font-family="Montserrat, Arial, sans-serif" font-size="18" font-weight="800" fill="#0002eb" letter-spacing="-0.5">Billah</text>
+</svg>
