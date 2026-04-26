@@ -627,11 +627,441 @@ body {
 .award-card:hover .award-label { transform: translateY(0); }
 
 /* ============================================================
+   ░░░  SECTION 4 – SERVICES (WHAT I DO)
+   ============================================================ */
+.services-section {
+    padding: 100px 0;
+    background: #fff;
+}
+.services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.services-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.services-header .section-title { margin-bottom: 0; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Base card */
+.svc-card {
+    background: #fff;
+    border: 1.5px solid #eaecf5;
+    border-radius: 18px;
+    padding: 32px 28px 28px;
+    position: relative;
+    transition: transform .35s cubic-bezier(.22,.68,0,1.2),
+                box-shadow .35s ease,
+                border-color .3s ease;
+    overflow: hidden;
+}
+.svc-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,2,235,.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity .35s ease;
+    pointer-events: none;
+    border-radius: inherit;
+}
+.svc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,2,235,.1);
+    border-color: rgba(0,2,235,.2);
+}
+.svc-card:hover::before { opacity: 1; }
+
+/* Featured card */
+.svc-featured {
+    background: linear-gradient(145deg, #3b3bd9 0%, #6b35e8 50%, #e0357a 100%);
+    border: none;
+    color: #fff;
+}
+.svc-featured::before { display: none; }
+.svc-featured:hover {
+    box-shadow: 0 20px 50px rgba(107,53,232,.35);
+    border: none;
+}
+.svc-featured .svc-title  { color: #fff; }
+.svc-featured .svc-desc   { color: rgba(255,255,255,.85); }
+
+/* Icon */
+.svc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(0,2,235,.08);
+    transition: background .3s ease;
+}
+.svc-featured .svc-icon {
+    background: rgba(255,255,255,.2);
+}
+.svc-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #0002eb;
+}
+.svc-featured .svc-icon svg { stroke: #fff; }
+.svc-card:not(.svc-featured):hover .svc-icon { background: rgba(0,2,235,.14); }
+
+.svc-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+.svc-desc {
+    font-size: .87rem;
+    color: #6a6a88;
+    line-height: 1.75;
+}
+
+/* Arrow for featured */
+.svc-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+    margin-top: 22px;
+    text-decoration: none;
+    color: #fff;
+    transition: background .3s ease, transform .3s ease;
+}
+.svc-arrow:hover {
+    background: rgba(255,255,255,.35);
+    transform: translateX(4px);
+}
+.svc-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ============================================================
+   ░░░  SECTION 5 – PORTFOLIO
+   ============================================================ */
+.portfolio-section {
+    padding: 100px 0;
+    background: #f4f6fb;
+}
+.portfolio-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+.portfolio-header .section-badge {
+    font-size: .68rem;
+    letter-spacing: 2.5px;
+}
+.portfolio-header .section-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+/* Card (uses <button> for a11y) */
+.portfolio-card {
+    background: #fff;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    transition: transform .4s cubic-bezier(.22,.68,0,1.2),
+                box-shadow .4s ease;
+}
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 54px rgba(0,0,0,.14);
+}
+
+/* Thumbnail area */
+.pf-thumb {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+.pf-thumb--wp    { background: linear-gradient(145deg, #1a1ae8 0%, #2d2de8 40%, #5b5beb 100%); }
+.pf-thumb--linux { background: linear-gradient(145deg, #0d0dcc 0%, #1f1fe0 40%, #4040e8 100%); }
+
+.pf-thumb-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 28px 32px;
+}
+.pf-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.pf-icons svg {
+    width: 32px;
+    height: 32px;
+    opacity: .9;
+}
+.pf-thumb-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+.pf-thumb-sub {
+    font-size: .78rem;
+    color: rgba(255,255,255,.7);
+    font-weight: 500;
+    letter-spacing: .5px;
+}
+
+/* Decorative circle behind content */
+.pf-thumb::after {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: rgba(255,255,255,.07);
+    border-radius: 50%;
+    right: -60px;
+    bottom: -80px;
+    pointer-events: none;
+}
+
+/* Footer strip */
+.pf-footer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 22px;
+    border-top: 1px solid #eef0f8;
+}
+.pf-likes {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .82rem;
+    color: #888;
+    white-space: nowrap;
+}
+.pf-likes svg {
+    width: 14px;
+    height: 14px;
+    stroke: #d44;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.pf-card-title {
+    font-size: .9rem;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+/* ── Portfolio Modal ── */
+.pf-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 30, .65);
+    backdrop-filter: blur(6px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+.pf-modal-overlay:not([hidden]) { display: flex; }
+.pf-modal-overlay.is-open { opacity: 1; }
+
+.pf-modal-box {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1020px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 32px 80px rgba(0,0,0,.25);
+    transform: translateY(24px) scale(.97);
+    transition: transform .35s cubic-bezier(.22,.68,0,1.2);
+}
+.pf-modal-overlay.is-open .pf-modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.pf-modal-close {
+    position: sticky;
+    top: 16px;
+    float: right;
+    margin: 16px 16px 0 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid #e0e0e0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #555;
+    z-index: 2;
+    transition: all .25s ease;
+}
+.pf-modal-close:hover {
+    border-color: #0002eb;
+    background: #0002eb;
+    color: #fff;
+}
+.pf-modal-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Top: preview + info */
+.pf-modal-top {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+    padding: 28px 32px 24px;
+    align-items: start;
+    clear: both;
+}
+.pf-modal-preview {
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(145deg, #1a1ae8, #5b5beb);
+}
+.pf-modal-preview.is-linux { background: linear-gradient(145deg, #0d0dcc, #4040e8); }
+
+/* Re-use thumb inner style */
+.pf-modal-preview .pf-thumb-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 28px;
+    position: relative;
+    height: 100%;
+}
+
+.pf-modal-info {
+    padding: 8px 0 8px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.pf-modal-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.3;
+}
+.pf-like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: .88rem;
+    font-weight: 700;
+    color: #555;
+    transition: all .3s ease;
+}
+.pf-like-btn:hover,
+.pf-like-btn[aria-pressed="true"] {
+    border-color: #0002eb;
+    color: #0002eb;
+    background: rgba(0,2,235,.06);
+}
+.pf-like-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: fill .3s ease;
+}
+.pf-like-btn[aria-pressed="true"] svg { fill: #0002eb; }
+.like-count {
+    background: #0002eb;
+    color: #fff;
+    border-radius: 50px;
+    padding: 2px 10px;
+    font-size: .78rem;
+}
+
+/* Doc iframe */
+.pf-modal-doc {
+    margin: 0 32px 32px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1.5px solid #eaecf5;
+    height: 480px;
+}
+.pf-modal-doc iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-    .hero-inner  { gap: 40px; }
-    .about-inner { gap: 56px; }
+    .hero-inner     { gap: 40px; }
+    .about-inner    { gap: 56px; }
+    .services-grid  { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -643,35 +1073,44 @@ body {
         padding-bottom: 44px;
         gap: 44px;
     }
-    .hero-image-col { order: -1; }
-    .hero-img-card  { max-width: 300px; margin: 0 auto; }
-    .welcome-badge  { margin: 0 auto 20px; }
-    .hero-desc      { margin-left: auto; margin-right: auto; }
+    .hero-image-col  { order: -1; }
+    .hero-img-card   { max-width: 300px; margin: 0 auto; }
+    .welcome-badge   { margin: 0 auto 20px; }
+    .hero-desc       { margin-left: auto; margin-right: auto; }
     .hero-stats, .hero-cta-row { justify-content: center; }
     .hero-social-row { justify-content: center; }
-    .skill-badges   { justify-content: center; }
+    .skill-badges    { justify-content: center; }
     .hero-subheading { justify-content: center; }
 
-    /* About stacks */
-    .about-inner {
-        grid-template-columns: 1fr;
-        gap: 64px;
-    }
-    .exp-badge { right: 8px; }
+    /* About */
+    .about-inner { grid-template-columns: 1fr; gap: 64px; }
+    .exp-badge   { right: 8px; }
 
-    /* Awards 3 cols */
+    /* Awards */
     .awards-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* Services */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* Portfolio */
+    .portfolio-grid { grid-template-columns: 1fr; }
+
+    /* Modal */
+    .pf-modal-top  { grid-template-columns: 1fr; }
+    .pf-modal-info { padding: 20px 0 0; }
+    .pf-modal-doc  { height: 360px; }
 }
 
 @media (max-width: 560px) {
-    .hero-stats { gap: 20px; }
+    .hero-stats  { gap: 20px; }
     .stat-item .num { font-size: 1.4rem; }
-
-    /* Awards 2 cols */
     .awards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
-    .exp-badge { display: none; }
-
+    .exp-badge   { display: none; }
     .about-img-frame::before,
     .about-img-frame::after { display: none; }
+
+    .pf-modal-box { border-radius: 14px; }
+    .pf-modal-top,
+    .pf-modal-doc { padding-left: 16px; padding-right: 16px; }
+    .pf-modal-doc { margin: 0 16px 24px; height: 300px; }
 }
